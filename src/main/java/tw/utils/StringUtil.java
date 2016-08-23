@@ -9,7 +9,9 @@ public class StringUtil {
     public static boolean isNull(String str) {
         return str == null || str.toLowerCase().trim().equals("null");
     }
-
+    public static boolean isEmpty(String str) {
+        return isNull(str)||str.equals("");
+    }
     /**
      * @param str
      * @return 是否为空或者为"null"

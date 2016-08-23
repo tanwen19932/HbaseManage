@@ -2,6 +2,8 @@ package hbaseManage;
 
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * @author TW
  * @date TW on 2016/8/19.
@@ -19,7 +21,16 @@ public class HbaseManagerTest {
     }
 
     @Test
-    public void testGetTableFamilys() throws Exception {
+    public void testGetTableFamilies()
+            throws Exception {
         System.out.println( "Family: ++++++++ "+ HbaseManager.getTableFamilies("NewsArticleBE2"));
+    }
+
+    @Test
+    public void testGetValues()
+            throws Exception {
+        //HbaseUtil.getAllRecordToFile("NewsArticleTest","E:/1.txt","I","textSrc");
+        List list = HbaseManager.getValues("NewsArticleTest","I",1,"","",null);
+        System.out.println("testGetValues: +++++++"+list.size() );
     }
 }

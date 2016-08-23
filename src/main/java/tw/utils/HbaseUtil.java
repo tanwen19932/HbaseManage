@@ -12,9 +12,6 @@ import java.util.*;
  * @author wuxu
  */
 
-interface handler{
-
-}
 public class HbaseUtil {
     public static Configuration configuration;
 
