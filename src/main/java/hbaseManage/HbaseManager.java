@@ -74,8 +74,8 @@ public class HbaseManager {
         return famlilies;
     }
 
-    public static List<Map<String,String>> getValues(String tableName ,String families , int page,String startRow , String endRow , List filters){
-        return TablePool.get(tableName).getValues(families,page,startRow,endRow,filters);
+    public static List<Map<String,String>> getValues(String tableName ,String[] families , int page,int pageSize,String startRow , String endRow , List filters){
+        return TablePool.get(tableName).getValues(families,page,pageSize,startRow,endRow,filters);
     }
 
 }

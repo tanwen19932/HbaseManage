@@ -1,13 +1,11 @@
 package hbaseManage;
 
+import com.google.common.collect.Sets;
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.client.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static tw.utils.HbaseUtil.*;
 import static tw.utils.StringUtil.isEmpty;
@@ -33,27 +31,43 @@ public class TableManager {
         }
     }
 
-    public List getValues(String family, int page, String startRow, String endRow, List filters) {
+    public List getValues(String[] families, int page, int pageSize, String startRow, String endRow, List<HbaseFilter> filters) {
         List<Map<String, String>> result = new ArrayList<>();
+        Set<String> familiesSet = Sets.newHashSet(families);
         try {
             Scan scan = new Scan();
             if (!isEmpty(startRow))
                 scan.setStartRow(sToB(startRow));
             if (!isEmpty(endRow))
                 scan.setStopRow(sToB(endRow));
+
+
+            scan.setFilter(HbaseFilterFactory.getFilterList(filters));
             ResultScanner resultScanner = htable.getScanner(scan);
+            int temp = 0;
             for (Result r : resultScanner) {
+                if (temp < (page - 1) * pageSize) {
+                    temp++;
+                    continue;
+                }
                 if (r.listCells() != null) {
                     Map<String, String> map = new HashMap<>();
                     String rowkey = " ";
                     for (Cell cell : r.listCells()) {
+                        String family = bToS(cell.getFamily());
                         rowkey = bToS(cell.getRow());
+                        if (!familiesSet.contains(family)) {
+                            continue;
+                        }
                         String qualifier = (bToS(cell.getQualifier())).trim();
                         // System.out.println(qualifier+" "+Bytes.toString(cell.getValue()));
                         map.put(qualifier, bToS(cell.getValue()));
                     }
                     map.put(HbaseConstant.ROWKEY, rowkey);
                     result.add(map);
+                    if (result.size() == pageSize) {
+                        break;
+                    }
                 }
             }
         } catch (Exception e) {
@@ -90,6 +104,13 @@ public class TableManager {
             return false;
         }
     }
+
+    //@Override
+    //protected void finalize()
+    //        throws Throwable {
+    //    close();
+    //    super.finalize();
+    //}
 
     public void close() {
         if (htable != null) {

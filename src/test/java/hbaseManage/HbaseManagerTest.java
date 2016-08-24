@@ -29,8 +29,9 @@ public class HbaseManagerTest {
     @Test
     public void testGetValues()
             throws Exception {
+        String[] a = new String[]{"I"};
         //HbaseUtil.getAllRecordToFile("NewsArticleTest","E:/1.txt","I","textSrc");
-        List list = HbaseManager.getValues("NewsArticleTest","I",1,"","",null);
+        List list = HbaseManager.getValues("NewsArticleTest",a,1,10,"","",null);
         System.out.println("testGetValues: +++++++"+list.size() );
     }
 }
