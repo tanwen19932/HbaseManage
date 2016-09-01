@@ -40,7 +40,6 @@ public class HbaseMetricsImpl implements HbaseMetricsI{
 			System.out.println("request URL : " + queryUrl);
 			return HttpUtil.getHttpContent(queryUrl);
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ERROR;
