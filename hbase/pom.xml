@@ -7,9 +7,17 @@
     <groupId>tw</groupId>
     <artifactId>hbase</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <properties>
+        <elasticsearch.version>2.3.5</elasticsearch.version>
+    </properties>
     <dependencies>
 
+        <dependency>
+            <groupId>es</groupId>
+            <artifactId>es-shadow</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
@@ -72,12 +80,6 @@
             <version>3.14</version>
         </dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.7</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>dom4j</groupId>
@@ -85,12 +87,7 @@
             <version>1.6.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
-        <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <version>1.6.0</version>
-        </dependency>
+
         <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
         <dependency>
             <groupId>net.sf.json-lib</groupId>
@@ -106,6 +103,12 @@
             <version>2.4.2</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.jchardet/jchardet -->
+        <dependency>
+            <groupId>net.sourceforge.jchardet</groupId>
+            <artifactId>jchardet</artifactId>
+            <version>1.0</version>
+        </dependency>
 
         <!--<dependency>-->
         <!--<groupId>com.google.guava</groupId>-->
@@ -113,5 +116,14 @@
         <!--<version>19.0</version>-->
         <!--</dependency>-->
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.7</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
+
+
 </project>

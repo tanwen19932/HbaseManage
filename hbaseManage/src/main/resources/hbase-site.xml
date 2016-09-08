@@ -23,7 +23,7 @@
 <configuration>
     <property>
         <name>hbase.rootdir</name>
-        <value>hdfs://192.168.55.31:54310/hbase</value>
+        <value>hdfs://master:54310/hbase</value>
     </property>
     <property>
         <name>hbase.master.info.port</name>
@@ -42,7 +42,7 @@
 
     <property>
         <name>hbase.zookeeper.quorum</name>
-        <value>slave1,slave2,slave3,slave4,slave5,slave6,slave7</value>
+        <value>slave1,slave2,slave3</value>
     </property>
 
     <property>

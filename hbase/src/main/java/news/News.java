@@ -518,12 +518,40 @@ public class News {
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return id + "\t" + mediaType +"\t" +mediaTname +"\t" +titleSrc+"\t"
-                +pubdate+"\t" +textSrc.substring(0,10)+"...\t" +websiteId+"\t" +
-                mediaNameSrc+"\t" +mediaNameZh+"\t" +mediaNameEn+"\t" +countryNameZh+"\t" +countryNameEn+
-                "\t" +provinceNameZh+"\t" +provinceNameEn +"\t" + districtNameZh +"\t" +districtNameEn +
-                languageCode+ "\t" + languageTname + "\t" + author +"\t" +created +"\t" +
-                "\t" +updated +"\t" + isOriginal +"\t" + view +"\t" + url +"\t" + comeFrom +"\t" +comeFromDb +"..";
+        return "News{" +
+                "author='" + author + '\'' +
+                ", id='" + id + '\'' +
+                ", mediaType=" + mediaType +
+                ", mediaTname='" + mediaTname + '\'' +
+                ", titleSrc='" + titleSrc + '\'' +
+                ", pubdate='" + pubdate + '\'' +
+                ", textSrc='" + textSrc + '\'' +
+                ", websiteId='" + websiteId + '\'' +
+                ", mediaNameSrc='" + mediaNameSrc + '\'' +
+                ", mediaNameZh='" + mediaNameZh + '\'' +
+                ", mediaNameEn='" + mediaNameEn + '\'' +
+                ", mediaLevel=" + mediaLevel +
+                ", countryNameZh='" + countryNameZh + '\'' +
+                ", countryNameEn='" + countryNameEn + '\'' +
+                ", provinceNameZh='" + provinceNameZh + '\'' +
+                ", provinceNameEn='" + provinceNameEn + '\'' +
+                ", districtNameZh='" + districtNameZh + '\'' +
+                ", districtNameEn='" + districtNameEn + '\'' +
+                ", languageCode='" + languageCode + '\'' +
+                ", languageTname='" + languageTname + '\'' +
+                ", created='" + created + '\'' +
+                ", updated='" + updated + '\'' +
+                ", isOriginal=" + isOriginal +
+                ", view=" + view +
+                ", url='" + url + '\'' +
+                ", docLength=" + docLength +
+                ", transFromM='" + transFromM + '\'' +
+                ", pv=" + pv +
+                ", isHome=" + isHome +
+                ", isPicture=" + isPicture +
+                ", comeFrom='" + comeFrom + '\'' +
+                ", comeFromDb='" + comeFromDb + '\'' +
+                ", userTag='" + userTag + '\'' +
+                '}';
     }
 }

@@ -9,7 +9,7 @@ import org.elasticsearch.client.Client;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-public class companyEsInserter {
+public class productEsInserter {
 	static final ThreadLocal<Client> client = new ThreadLocal<Client>() {
 		@Override
 		protected Client initialValue() {
@@ -21,31 +21,30 @@ public class companyEsInserter {
 			return null;
 		}
 	};
-	public static void insertCompany(Company company)
+	public static void insertCompany(Product product
+	)
 			throws InterruptedException, UnknownHostException {
 		JSONObject jsonQuery=new JSONObject();
-		String id  = String.valueOf(company.getCompanyId());
+		String id  = String.valueOf(product.getProductId());
 		jsonQuery.put("id", id);
-		jsonQuery.put("companyName", company.getCompanyName());
-		jsonQuery.put("companyAlias", company.getCompanyAlias());
-		jsonQuery.put("industryName", company.getIndustryName());
-		jsonQuery.put("companyIntro", company.getCompanyIntro());
-		jsonQuery.put("companyLogo", company.getCompanyLogo());
+		jsonQuery.put("companyName", product.getCompanyName());
+		jsonQuery.put("industryName", product.getIndustryName());
+		jsonQuery.put("productName", product.getProductName());
 
 
-		IndexRequestBuilder indexRequestBuilder = client.get().prepareIndex("product", "company", id);
+		IndexRequestBuilder indexRequestBuilder = client.get().prepareIndex("product", "product", id);
 		indexRequestBuilder.setSource(jsonQuery.toString());
 		Thread.sleep(500);
 	}
 	private static UniversalDao myDao = null;
 	static {
-		myDao = new UniversalDao("Company", "C" , new Company()){
+		myDao = new UniversalDao("Product", "P" , new Product()){
 			@Override
 			public void handleAll(Object obj) {
 				// TODO Auto-generated method stub
-				Company company = (Company ) obj;
+                Product product = (Product ) obj;
 				try {
-					insertCompany(company);
+					insertCompany(product);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

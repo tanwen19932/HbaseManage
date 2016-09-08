@@ -42,7 +42,7 @@
 
 <property>
 <name>hbase.zookeeper.quorum</name>
-<value>mdp.hbase1,mdp.hbase2,mdp.hbase3</value>
+<value>slave1,slave2,slave3,slave4,slave5,slave6,slave7</value>
 </property>
 
 <property>

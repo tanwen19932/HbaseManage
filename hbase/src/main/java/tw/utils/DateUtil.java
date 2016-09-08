@@ -10,6 +10,7 @@ public class DateUtil {
 	//By PA Aug 24, 2015
 	static{
 		regexList.add("yyyy-MM-dd HH:mm:ss");
+		regexList.add("yyyy-MM-dd HH:mm:ss.0");
 		regexList.add("MM\\.dd");
 		regexList.add("yyyy-MM-dd HH:mm");
 		regexList.add("yyyy-MM-dd");
@@ -38,18 +39,5 @@ public class DateUtil {
 			}
 		}
 		return null;
-	}
-	public static void main(String[] args) {
-		for(int i=0 ;i< 1000 ;i++){
-			Thread thread = new Thread(new Runnable() {
-				
-				@Override
-				public void run() {
-					System.out.println(tryParse("于 2015年12月11日".trim()));
-				}
-			});
-			thread.start();
-			
-		}
 	}
 }

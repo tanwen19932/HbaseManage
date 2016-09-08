@@ -15,6 +15,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -63,35 +64,28 @@ public class Dedup {
 
 
     public static void main(String[] args) throws Exception {
+        String path = new File(".").getCanonicalPath();
+        //File workaround = new File(".");
+        System.getProperties().put("hadoop.home.dir", path);
+        new File("./bin").mkdirs();
+        new File("./bin/winutils.exe").createNewFile();
 
         Configuration conf = new Configuration();
 
-        conf.set("mapred.job.tracker", "192.168.59.20:9001");
+        //conf.set("mapred.job.tracker", "localhost");
 
         Job job = Job.getInstance(conf, "Data Deduplication");
 
         job.setJarByClass(Dedup.class);
-
         job.setMapperClass(Map.class);
-
         job.setCombinerClass(Reduce.class);
-
         job.setReducerClass(Reduce.class);
-
-
         job.setOutputKeyClass(Text.class);
-
         job.setOutputValueClass(Text.class);
 
 
-        FileInputFormat.addInputPath(job,
-
-                new Path("hdfs://hadoop1:9000/dedup_in"));
-
-        FileOutputFormat.setOutputPath(job,
-
-                new Path("hdfs://hadoop1:9000/dedup_out"));
-
+        FileInputFormat.addInputPath(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
 

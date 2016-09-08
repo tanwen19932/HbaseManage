@@ -264,12 +264,12 @@ public class CisionZipFileV2 {
 
 					news.setComeFromDb("CisionTxt");
 					newsList.add(news);
-					if(newsList.size()==100){
-						put(newsList);
-					}
+//					if(newsList.size()==100){
+//						put(newsList);
+//					}
 				}
 				put(newsList);
-				long tempTotal = totalCount.addAndGet(newsList.size());
+				long tempTotal = totalCount.addAndGet(ja.length());
 				System.out.println(fileName + "  ++++ 解压完毕   共有 " + (currentFileCount + newsList.size()) + " 文件数量 "
 						+ ja.length() + "解压后总数————"+ tempTotal);
 				pro.setProperty(fileName, String.valueOf(1));

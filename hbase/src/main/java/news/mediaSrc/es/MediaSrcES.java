@@ -1,19 +1,19 @@
 package news.mediaSrc.es;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-
+import es.client.ESClient;
+import news.DicMap;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.client.Client;
 import org.json.JSONObject;
-
-import es.client.ESClient;
-import news.DicMap;
 import tw.utils.JsonUtil;
 import tw.utils.MysqlUniversalDao;
-import static tw.utils.StringUtil.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+
+import static tw.utils.StringUtil.isNull;
 
 
 public class MediaSrcES {
@@ -28,7 +28,7 @@ public class MediaSrcES {
 
 	static {
 		String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-		String JDBC_URL = "jdbc:mysql://192.168.55.20:3306/jwbase_datacenter?characterEncoding=utf8";
+		String JDBC_URL = "jdbc:mysql://192.168.59.4:3306/jwbase_datacenter?characterEncoding=utf8";
 		String JDBC_USER = "yeesight";
 		String JDBC_PWD = "Test@123.cn";
 		String TABLE_NAME = "newsarticlebe2count";
@@ -64,7 +64,7 @@ public class MediaSrcES {
 	
 	public static void main(String[] args) throws Exception {
 		
-		Client client = ESClient.getClient("yeesightNew","192.168.55.45",9300);
+		Client client = ESClient.getClient("es","192.168.59.10",9300);
 		ResultSet rs = mysqlUDao.select("select * from newsarticlebe2count a where a.districtNameZh != 'null'");
 		int count = 0;
 		BulkRequestBuilder bulkRequest = client.prepareBulk();
@@ -105,7 +105,7 @@ public class MediaSrcES {
 			// either use client#prepare, or use Requests# to directly build
 			// index/delete requests
 			
-			bulkRequest.add(client.prepareIndex("news2", "media", id).setSource(json.toString()));
+			bulkRequest.add(client.prepareIndex("common", "media", id).setSource(json.toString()));
 			count++;
 			if (count == 100) {
 				BulkResponse bulkResponse = bulkRequest.execute().actionGet();

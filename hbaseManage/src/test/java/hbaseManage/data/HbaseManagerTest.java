@@ -23,6 +23,7 @@ public class HbaseManagerTest {
     @Test
     public void testGetTableFamilies()
             throws Exception {
+        System.out.println("Tables: ++++++++ "+HbaseManager.getAllTables());
         System.out.println( "Family: ++++++++ "+ HbaseManager.getTableFamilies("NewsArticleBE2"));
     }
 
