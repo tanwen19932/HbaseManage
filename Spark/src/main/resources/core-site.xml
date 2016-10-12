@@ -21,32 +21,8 @@
 
     <property>
         <name>fs.defaultFS</name>
-        <value>hdfs://192.168.59.20:9000</value>
+        <value>hdfs://192.168.88.10:9000</value>
         <description>NameNode URI.</description>
     </property>
 
-    <property>
-        <name>io.file.buffer.size</name>
-        <value>131072</value>
-        <description>Size of read/write buffer used inSequenceFiles.</description>
-    </property>
-
-
-    <property>
-        <name>fs.checkpoint.period</name>
-        <value>3600</value>
-        <description>The number of seconds between two periodic checkpoints. </description>
-    </property>
-
-    <property>
-        <name>fs.checkpoint.size</name>
-        <value>67108864</value>
-        <description>The size of the current edit log (in bytes) that triggers a periodic checkpoint even if the fs.checkpoint.period hasn‘texpired. </description>
-    </property>
-
-
-    <property>
-        <name>fs.checkpoint.dir</name>
-        <value>/home/hadoop/hadoop-2.6.0-cdh5.5.2/namesecondary/</value>
-    </property>
 </configuration>

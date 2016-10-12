@@ -226,7 +226,7 @@ public class FileUtils {
         }
     }
 
-    public static void fileAppendStr(String fileName, String content) {
+    public static synchronized void fileAppendStr(String fileName, String content) {
         RandomAccessFile randomFile = null;
         fileName.replaceAll("\\\\","/");
         try {
