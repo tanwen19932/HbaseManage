@@ -122,5 +122,28 @@
     <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.virtuald:curvesapi:1.03" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.7" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/yarn" />
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/httpfs" />
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/mapreduce" />
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop" />
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/common" />
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/hdfs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/common/jdiff" />
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/hdfs/jdiff" />
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/common/jdiff" />
+          <root url="file://D:/apache/hadoop-2.7.3/share/hadoop/hdfs/jdiff" />
+        </SOURCES>
+        <jarDirectory url="file://D:/apache/hadoop-2.7.3/share/hadoop/common" recursive="false" />
+        <jarDirectory url="file://D:/apache/hadoop-2.7.3/share/hadoop/hdfs" recursive="false" />
+        <jarDirectory url="file://D:/apache/hadoop-2.7.3/share/hadoop/mapreduce" recursive="false" />
+        <jarDirectory url="file://D:/apache/hadoop-2.7.3/share/hadoop/yarn" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -12,7 +12,7 @@ public class HbaseMetricsImplTest {
     public void testGetStr()
             throws Exception {
         System.out.println( new HbaseMetricsImpl().getStr("{\n" +
-                "    \"ip\":\"192.168.59.12:60010\",\n" +
+                "    \"ip\":\"192.168.88.10:60010\",\n" +
                 "    \"qry\":\"Server\",\n" +
                 "    \"name\":\"Master\"\n" +
                 "}\n"));

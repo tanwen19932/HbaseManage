@@ -11,7 +11,6 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
@@ -68,13 +67,13 @@ public class WordCount {
     }
 
     public static void main(String[] args) throws Exception {
-        String path = new File(".").getCanonicalPath();
+        //String path = new File(".").getCanonicalPath();
         //File workaround = new File(".");
-        System.getProperties().put("hadoop.home.dir", path);
-        new File("./bin").mkdirs();
-        new File("./bin/winutils.exe").createNewFile();
-
+        //System.getProperties().put("hadoop.home.dir", path);
+        //new File("./bin").mkdirs();
+        //new File("./bin/winutils.exe").createNewFile();
         Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf, "word count");
         String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
         if (otherArgs.length < 2) {
             System.err.println("Usage: wordcount <in> [<in>...] <out>");
@@ -84,11 +83,11 @@ public class WordCount {
         //先删除output目录
         deleteDir(conf, otherArgs[otherArgs.length - 1]);
 
+        job.setJar("D:/zhongyijar/hadoop.jar");
         //conf.set("mapred.job.tracker", "localhost");
-        Job job = Job.getInstance(conf, "word count");
         job.setJarByClass(WordCount.class);
         job.setMapperClass(TokenizerMapper.class);
-        job.setCombinerClass(IntSumReducer.class);
+        //job.setCombinerClass(IntSumReducer.class);
         job.setReducerClass(IntSumReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);

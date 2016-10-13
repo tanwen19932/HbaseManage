@@ -23,26 +23,18 @@
 <configuration>
 <property>
 <name>hbase.rootdir</name>
-<value>hdfs://192.168.55.31:54310/hbase</value>
-</property>
-<property>
-<name>hbase.master.info.port</name>
-<value>60010</value>
+<value>hdfs://my.master:9000/hbase</value>
 </property>
 
 <property>
 <name>hbase.master</name>
-<value>master</value>
+<value>my.master</value>
 </property>
 
-<property>
-<name>hbase.cluster.distributed</name>
-<value>true</value>
-</property>
 
 <property>
 <name>hbase.zookeeper.quorum</name>
-<value>mdp.hbase1,mdp.hbase2,mdp.hbase3</value>
+<value>my.slave1,my.slave2</value>
 </property>
 
 <property>
@@ -50,10 +42,6 @@
 <value>2181</value>
 </property>
 
-<property>
-<name>hbase.zookeeper.property.dataDir</name>
-<value>/home/_hadoop/zookeeper/store/data</value>
-</property>
 <property>
 <name>hbase.regionserver.ipc.address</name>
 <value>0.0.0.0</value>
