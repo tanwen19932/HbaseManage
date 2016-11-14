@@ -46,5 +46,5 @@ class Person2 {
 
 class Person3(name: String) {
   var age =1
-  override def toString = s"Person2($name, $age)"
+  override def toString = s"Person3($name, $age)"
 }
