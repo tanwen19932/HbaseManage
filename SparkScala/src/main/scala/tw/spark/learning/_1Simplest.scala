@@ -15,9 +15,10 @@ object _1Simplest {
     def myAdd(x: Int*):Int = {
       var sum = 0
       for (i <- x  )
-        sum = sum+ i
+        sum = sum + i
       sum
     }
+
    println(myAdd(0 to iterable:_*))
    println( {
      for (i <- 0 to iterable ;from= i+1;j <- i-6 to from )

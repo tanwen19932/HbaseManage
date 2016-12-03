@@ -8,8 +8,7 @@ import scala.io.StdIn
 
 /**
   * @author TW
-  * @date TW on 2016/11/3.
-  */
+  **/
 object _2Control {
 
   def main(args: Array[String]): Unit = {

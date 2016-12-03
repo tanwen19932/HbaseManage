@@ -19,7 +19,7 @@ public class HttpRequest {
      */
     public static String sendGet(String url) {
         System.out.println("url:" + url);
-        String result = "";
+        String result= "";
         BufferedReader in = null;
         try {
             String urlNameString = url;

@@ -3,6 +3,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object SparkWordCount {
   def main(args: Array[String]) {
     val sc = new SparkContext(new SparkConf().setAppName("Spark Count"))
+
     val threshold = args(1).toInt
     // split each document into words
     val tokenized = sc.textFile(args(0)).flatMap(_.split(" "))

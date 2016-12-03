@@ -22,13 +22,13 @@ public class SimpleApp {
         //new File("./bin").mkdirs();
         //new File("./bin/winutils.exe").createNewFile();
 
-        String logFile = "hdfs://192.168.88.10/test/NewsInserter.log"; // Should be some file on your system
-        String jarPath = "D:\\zhongyijar\\SimpleApp.jar";
+        String logFile = "/Users/TW/ja_all/all"; // Should be some file on your system
+        String jarPath = "/Users/TW/jars/SimpleAPP.jar";
         String [] jars = new String[1] ;
         jars[0]= jarPath;
         SparkConf conf = new SparkConf().setAppName("TEST Application")
                 .setJars(jars)
-                .setMaster("spark://my.master:7077")
+                .setMaster("spark://localhost:7077")
                 .setAppName("TW JAVA TEST");
         JavaSparkContext sc = new JavaSparkContext(conf);
         JavaRDD<String> logData = sc.textFile(logFile).cache()
