@@ -2,8 +2,7 @@ import java.util.{HashMap => utilHashMap}
 
 /**
   * @author TW
-  * @date TW on 2016/11/7.
-  */
+  **/
 package edu {
   package buaa {
     package nlp {

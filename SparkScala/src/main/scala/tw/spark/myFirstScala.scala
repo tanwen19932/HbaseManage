@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object  myFirstScala {
   def main(args: Array[String]): Unit = {
     println("Hello Scala!")
-    val conf = new SparkConf().setAppName("Spark Pi").setMaster("spark://localhost:7077")  .setJars(List("D:\\zhongyijar\\SparkScala.jar"))
+    val conf = new SparkConf().setAppName("Spark Pi").setMaster("spark://localhost:7077")  .setJars(List("SparkScala.jar"))
     val sc = new SparkContext(conf)
 
     val slices = if (args.length > 0) args(0).toInt else 2
