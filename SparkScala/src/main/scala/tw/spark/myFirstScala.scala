@@ -8,11 +8,15 @@ import org.apache.spark.{SparkConf, SparkContext}
 object  myFirstScala {
   def main(args: Array[String]): Unit = {
     println("Hello Scala!")
-    val conf = new SparkConf().setAppName("Spark Pi").setMaster("spark://localhost:7077")  .setJars(List("SparkScala.jar"))
-    val sc = new SparkContext(conf)
 
+    val conf = new SparkConf()
+      .setJars(List("/Users/TW/jars/SparkPi.jar"))
+      .setAppName("Spark Pi2")
+      .setMaster("spark://tanwendeMacBook-Pro.local:7077")
+    val sc = new SparkContext(conf)
     val slices = if (args.length > 0) args(0).toInt else 2
-    val n = 100000 * slices
+    println("???????")
+    val n = 100 * slices
     val count =  sc.parallelize(1 to n, slices).map{ i =>
       val x = Math.random*2-1
       val y = Math.random*2-1

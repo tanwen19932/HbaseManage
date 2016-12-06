@@ -12,9 +12,10 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
     <hadoop.version>2.7.3</hadoop.version>
     <hadoop-core.version>2.7.3</hadoop-core.version>
-    <spark.version>2.0.1</spark.version>
+    <spark.version>2.0.2</spark.version>
   </properties>
 
   <dependencies>
@@ -43,7 +44,7 @@
     <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming_2.10 -->
     <dependency>
     <groupId>org.apache.spark</groupId>
-    <artifactId>spark-streaming_2.10</artifactId>
+    <artifactId>spark-streaming_2.11</artifactId>
     <version>${spark.version}</version>
     </dependency>
 

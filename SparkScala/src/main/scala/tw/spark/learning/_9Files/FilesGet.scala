@@ -8,9 +8,8 @@ import scala.io.Source
   */
 object FilesGet {
   def main(args: Array[String]): Unit = {
-    val filePath = "myFile";
+    val filePath = "/Users/TW/jars/SparkPi.jar";
     val file = Source.fromFile(filePath, "utf-8")
-
     for (line <- file.getLines()) {
       print(line)
       val spilts = line.split("\t")

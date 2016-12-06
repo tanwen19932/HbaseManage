@@ -22,19 +22,20 @@ public class SimpleApp {
         //new File("./bin").mkdirs();
         //new File("./bin/winutils.exe").createNewFile();
 
-        String logFile = "/Users/TW/ja_all/all"; // Should be some file on your system
+        String logFile = "/README.txt" +
+                ""; // Should be some file on your system
         String jarPath = "/Users/TW/jars/SimpleAPP.jar";
         String [] jars = new String[1] ;
         jars[0]= jarPath;
-        SparkConf conf = new SparkConf().setAppName("TEST Application")
+        SparkConf conf = new SparkConf()
                 .setJars(jars)
-                .setMaster("spark://localhost:7077")
+                .setMaster("spark://tanwendeMacBook-Pro.local:7077")
                 .setAppName("TW JAVA TEST");
         JavaSparkContext sc = new JavaSparkContext(conf);
         JavaRDD<String> logData = sc.textFile(logFile).cache()
-                .flatMap( (s)-> Arrays.asList( s.split("\\s|,|\\|")
+                .flatMap( (s)-> Arrays.asList( s.split(" ")
                 ).iterator());
-        JavaPairRDD<String, Integer> counts =  logData.mapToPair((s)->new Tuple2(s, 1)).reduceByKey(( i, i2)->(Integer)i+(Integer)i2);
+        JavaPairRDD<String, Integer> counts =  logData.mapToPair((s)->new Tuple2(s.toString(), 1)).reduceByKey(( i, i2)->(Integer)i+(Integer)i2);
         List<Tuple2<String, Integer>> output = counts.collect();
         for (Tuple2<?,?> tuple : output) {
             System.out.println(tuple._1() + ": " + tuple._2());
