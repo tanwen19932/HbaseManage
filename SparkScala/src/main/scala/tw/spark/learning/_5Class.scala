@@ -19,9 +19,16 @@ object _5Object {
 
 class Person {
   private[this] var name = "";
-  private var age = 1;
+//  private var age = 1;
+  private var privateAge=0
 
-  class Person() {
+  def age = privateAge //getter
+  def age_=(newValue:Int) //setter
+  {
+	  if (newValue > privateAge) privateAge = newValue
+  }
+
+    class Person() {
   }
 
   def this(name: String) {

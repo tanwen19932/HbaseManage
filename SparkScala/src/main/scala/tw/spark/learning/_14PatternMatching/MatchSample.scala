@@ -10,6 +10,7 @@ object MatchSample {
     val his = Currency(333.33, "$")
     //样例类
     val herPockey = his.copy(value = 1000)
+
     println(myPockey match {
       case Dollar(x) => "$" + x
       case Currency(x, y) => y + " " + x

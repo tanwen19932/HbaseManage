@@ -24,3 +24,50 @@ object _4Map {
 
   }
 }
+
+object Example4 {
+
+  def main(args: Array[String])
+  {
+    //不可变Map
+    val scores= scala.collection.immutable.Map("linger"->1,"angela"->2)
+    //scores+=("lanlan"->3)会报错
+
+    //可变Map
+    val scores2 = scala.collection.mutable.Map("linger"->9388296,"angela"->2)
+    scores2+=("lanlan"->3) //增
+    scores2-=("lanlan") //删
+    scores2("linger") = 4 //改
+    scores2("linger")  //查
+
+    for((k,v)<- scores)  yield(v,k) //遍历,实现反转
+
+    scores2.isDefinedAt("key")
+    scores2.contains("key")
+
+    val scores3 = new scala.collection.mutable.HashMap[String,Int]()
+    val scores4 = new  scala.collection.mutable.LinkedHashMap[String,Int]()
+    //还有各种map......
+
+
+    //元组
+    val t = ("linger","09388296","24")
+    val name=t._1
+    val num=t._2
+    val age=t._3
+    val (name2,num2,age2)=t
+    println(name2,num2,age2)
+
+    //zip操作
+    val keys=Array("name","age")
+    val values=Array("linger",24)
+    val pairs = keys.zip(values)
+    for((k,v)<-pairs) println(k,v)
+
+    val map = pairs.toMap
+    println(map)
+  }
+
+
+
+}

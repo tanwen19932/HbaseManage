@@ -13,6 +13,7 @@ object Collection {
     val app4 = List(9):+digits
     val app5 = List(9)+:digits
     val app6 = List(9)::digits
+//    val app6 = List(9):+:digits
 
     println(app1)
     println(app2)

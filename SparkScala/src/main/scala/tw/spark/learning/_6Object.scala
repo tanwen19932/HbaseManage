@@ -41,6 +41,7 @@ object myAdd extends add{
   override def add(): Unit = ???
 }
 object trafficLight extends Enumeration{
-  type trafficLight=Value
+  type trafficLight=Value //类型别名。。。 可以在for循环调用。。就是Value的集合
+
   val RED,GREEN,YELLOW= Value
 }
