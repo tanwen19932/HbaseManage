@@ -14,11 +14,26 @@ object Match {
       case '+' => "+"
       case '-' => "-"
       case ' ' => "x"
-      case s => "SOS！"
+      case s if Character.isDigit(s) => "SOS！"
       //守卫
-      case _ if Character.isDigit(c) => "no!"
       case _ => sign
     }
+
+
+    val Pi = 3.1415
+    def matchConstant(x:Any)=
+    {
+      val cPi = Pi
+      x match
+      {
+        case `cPi` => 3.14  // `cPi` is val,等于上面的cPi,也就是Pi           匹配常量，一般常量是大写开头的，小写的得加上 反引号
+        case cPi => 3.1  // cPi=x   变量模式
+        case _ => 3.0
+      }
+    }
+    println(matchConstant(Pi))
+    println(matchConstant(3.11111))
+
 
     println(t)
     val obj = "5131223"
