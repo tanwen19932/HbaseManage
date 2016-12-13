@@ -7,14 +7,26 @@ package tw.spark.learning._13Collection
 object Collection {
   def main(args: Array[String]): Unit = {
     val digits = List(1,34,5,6,88,2)
+//    List(9, 1, 34, 5, 6, 88, 2)
     val app1 = List(9):::digits
-    val app2 = List(9)++:digits
-    val app3 = List(9)++digits
-    val app4 = List(9):+digits
-    val app5 = List(9)+:digits
-    val app6 = List(9)::digits
-//    val app6 = List(9):+:digits
 
+    //    List(9, 1, 34, 5, 6, 88, 2)
+    val app2 = List(9)++:digits
+
+    //    List(9, 1, 34, 5, 6, 88, 2)
+    val app3 = List(9)++digits
+
+    //    List(9, List(1, 34, 5, 6, 88, 2))
+    val app4 = List(9):+digits
+
+    //    List(List(9), 1, 34, 5, 6, 88, 2)
+    val app5 = List(9)+:digits
+
+    //    List(List(9), 1, 34, 5, 6, 88, 2)
+    val app6 = List(9)::digits
+    136
+    136
+    136
     println(app1)
     println(app2)
     println(app3)

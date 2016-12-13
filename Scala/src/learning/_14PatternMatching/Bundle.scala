@@ -16,7 +16,7 @@ object Bundle {
 }
 
 abstract class Item
-
+//样例类，自动生成apply和unapply方法
 case class Book(name: String, price: Int) extends Item
 
 case class Bundle(name: String, price: Int, items: Item*) extends Item

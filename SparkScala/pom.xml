@@ -12,14 +12,21 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+    <hbase.version>1.1.2</hbase.version>
     <hadoop.version>2.7.3</hadoop.version>
     <hadoop-core.version>2.7.3</hadoop-core.version>
+    <jsoup.version>1.10.1</jsoup.version>
     <spark.version>2.0.2</spark.version>
   </properties>
 
   <dependencies>
     <!--https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.11-->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>${jsoup.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_2.11</artifactId>
@@ -59,7 +66,119 @@
     <!--<version>${hadoop.version}</version>-->
     <!--</dependency>-->
     <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-yarn-client -->
+    <dependency>
+      <groupId>es</groupId>
+      <artifactId>es-shadow</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase-client</artifactId>
+      <version>${hbase.version}</version>
+    </dependency>
 
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase-examples</artifactId>
+      <version>${hbase.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/pl.newicom.dddd/akka-persistence-eventstore_2.11 -->
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+
+
+    <!-- <dependency> <groupId>org.apache.cxf</groupId> <artifactId>apache-cxf</artifactId>
+        <version>3.1.7</version> <type>pom</type> </dependency> -->
+
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.14</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20160212</version>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.39</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>3.14</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.optimaize.languagedetector</groupId>
+      <artifactId>language-detector</artifactId>
+      <version>0.6</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.4</version>
+      <classifier>jdk15</classifier>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl -->
+    <!-- https://mvnrepository.com/artifact/jexcelapi/jxl -->
+    <dependency>
+      <groupId>jexcelapi</groupId>
+      <artifactId>jxl</artifactId>
+      <version>2.4.2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/net.sourceforge.jchardet/jchardet -->
+    <dependency>
+      <groupId>net.sourceforge.jchardet</groupId>
+      <artifactId>jchardet</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <!--<dependency>-->
+    <!--<groupId>com.google.guava</groupId>-->
+    <!--<artifactId>guava</artifactId>-->
+    <!--<version>19.0</version>-->
+    <!--</dependency>-->
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.7</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>tw</groupId>
+      <artifactId>hbase</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
 
   </dependencies>
 

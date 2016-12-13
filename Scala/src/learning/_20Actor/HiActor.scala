@@ -1,7 +1,6 @@
 package tw.spark.learning._20Actor
 
 import akka.actor.Actor
-import akka.actor.Actor.Receive
 import akka.event.Logging
 
 class MyActor extends Actor {
@@ -17,6 +16,6 @@ object HiActor {
 	def main(args: Array[String]): Unit = {
 		val hiActor = new MyActor
 		hiActor.preStart()
-		hiActor ! "test"
+//		hiActor ! "test"
 	}
-}
+}}

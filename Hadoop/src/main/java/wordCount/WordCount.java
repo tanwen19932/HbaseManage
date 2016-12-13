@@ -90,9 +90,7 @@ public class WordCount {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         FileInputFormat.addInputPath(job, new Path(pathIn));
-
-        FileOutputFormat.setOutputPath(job,
-                new Path(pathOut));
+        FileOutputFormat.setOutputPath(job,new Path(pathOut));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }

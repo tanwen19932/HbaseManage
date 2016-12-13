@@ -37,7 +37,7 @@ class Angela
   //包可见性 这里规定了这个方法只能再examples包内可见
   //当时在spark的mllib做二次开发时遇到这个坑,mllib有些函数是包可见的,其他包访问不了.
   //解决方法是将自己的程序起名跟那些函数所在的包一致,比如org.apache.spark.mllib.xxxx,这样就可以访问mllib的一些类和函数了
-  private[examples] def sayHello= {
+  private def sayHello= {
     println("Hello!")
   }
 

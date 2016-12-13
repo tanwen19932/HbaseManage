@@ -8,17 +8,17 @@ import scala.io.Source
 	*/
 object Example9 extends App {
 
-	val source = Source.fromFile("/home/linger/data/hive_data","UTF-8")
-
-	val lines = source.getLines()
-	for(l<-lines)
-	{
-		println(l)
-	}
-
-	lines.toArray
-	source.mkString
-	source.close()
+//	val source = Source.fromFile("/home/linger/data/hive_data","UTF-8")
+//
+//	val lines = source.getLines()
+//	for(l<-lines)
+//	{
+//		println(l)
+//	}
+//
+//	lines.toArray
+//	source.mkString
+//	source.close()
 
 	//可以调用Java一些io库来处理文件
 
@@ -31,6 +31,10 @@ object Example9 extends App {
 	//正则提取器
 	val numitem = "([0-9]+) ([a-z]+)".r
 	val numitem(num,item) = "99 bottle"
+
+	val regex = """([^\s]+)\s+([0-9]+)""".r
+	val regex(name ,count) = "掉了 55"
+	println(name,count)
 	println(num,item)
 
 
