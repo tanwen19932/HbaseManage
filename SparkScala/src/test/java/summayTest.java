@@ -1,4 +1,3 @@
-package test;
 
 import edu.buaa.nlp.text.inter.ISummerizer;
 import edu.buaa.nlp.text.process.summ.LexRankSummarizer;

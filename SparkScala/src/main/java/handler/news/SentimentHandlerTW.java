@@ -6,14 +6,14 @@ import edu.buaa.nlp.text.inter.ISentimentAnalysis;
 import edu.buaa.nlp.util.DateUtil;
 import edu.buaa.nlp.util.ExceptionUtil;
 import handler.Handler;
-
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SentimentHandlerTW implements Handler<ProcessedNews> {
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Serializable;
+
+public class SentimentHandlerTW implements Handler<ProcessedNews> ,Serializable {
 	private static final Logger LOG = LoggerFactory.getLogger(SentimentHandlerTW.class);
 	 public static boolean quick = false;
 	private ISentimentAnalysis sentimentClassifier ;

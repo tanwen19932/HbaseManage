@@ -23,6 +23,7 @@ import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.client.Client;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  *
  */
 
-public class SaveHandlerTW implements Handler<ProcessedNews> {
+public class SaveHandlerTW implements Handler<ProcessedNews>,Serializable {
 	private static Logger logger = Logger.getLogger(SaveHandlerTW.class);;
 	static BlockingQueue<ProcessedNews> listSet = new LinkedBlockingQueue<ProcessedNews>(Constants.CONTAINER_CORE_SIZE);
 	static int insertBulkCount = DupConstants.HBASE_PUT_BUFFER_SIZE * 10;

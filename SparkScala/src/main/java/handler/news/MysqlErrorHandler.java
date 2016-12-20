@@ -7,7 +7,9 @@ import statistics.CountModel;
 import statistics.Counter;
 import statistics.ERROR;
 
-public class MysqlErrorHandler implements ErrorHandler<ProcessedNews> {
+import java.io.Serializable;
+
+public class MysqlErrorHandler implements ErrorHandler<ProcessedNews> ,Serializable {
 	static final String SUCCESS_MSG = "Success";
 
 	@Override

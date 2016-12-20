@@ -15,6 +15,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class HbaseNewsDupDetectSimple implements IDupDetector<ProcessedNews> {
 	private static Logger logger = Logger.getLogger(HbaseNewsDupDetectSimple.class);
@@ -64,10 +65,9 @@ public class HbaseNewsDupDetectSimple implements IDupDetector<ProcessedNews> {
 			String key = String.valueOf(titleHashcode) + "|" + String.valueOf(contentSimHash) + "|"
 					+ String.valueOf(mediaHashcode);
 			Get get = new Get(Bytes.toBytes(key));
-			Stopwatch stopwatch = new Stopwatch();
-			stopwatch.start();
+			Stopwatch stopwatch = Stopwatch.createStarted();
 			isDup = check(get, table);
-			logger.debug("去重判断 exist时间 {} "+stopwatch.elapsedMillis());
+			logger.debug("去重判断 exist时间 {} "+stopwatch.elapsed(TimeUnit.MILLISECONDS));
 			if (isDup == true) {
 				returnStr = "1";
 			}
@@ -76,7 +76,7 @@ public class HbaseNewsDupDetectSimple implements IDupDetector<ProcessedNews> {
 				put.addColumn(family, Bytes.toBytes(""), Bytes.toBytes(""));
 				stopwatch.reset().start();
 				table.put(put);
-				logger.debug("去重插入时间 {} "+stopwatch.elapsedMillis());
+				logger.debug("去重插入时间 {} "+stopwatch.elapsed(TimeUnit.MILLISECONDS));
 				saveDup(news);
 			}
 			return returnStr;

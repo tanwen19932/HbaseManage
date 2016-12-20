@@ -1,4 +1,3 @@
-package test;
 
 import edu.buaa.nlp.TextClassification.ThemeClassifier;
 import edu.buaa.nlp.text.inter.ISummerizer;

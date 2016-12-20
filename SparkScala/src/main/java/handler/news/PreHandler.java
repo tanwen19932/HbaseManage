@@ -1,32 +1,22 @@
 package handler.news;
 
+import com.mininglamp.nlp.languageDetect.LanguageUtil;
 import edu.buaa.nlp.entity.news.DicMap;
-import edu.buaa.nlp.entity.news.News;
 import edu.buaa.nlp.entity.news.ProcessedNews;
 import edu.buaa.nlp.tw.common.DateUtil;
-import edu.buaa.nlp.tw.common.FileUtils;
 import edu.buaa.nlp.tw.common.HtmlUtil;
 import handler.Handler;
-import handler.HandlerChain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.mininglamp.nlp.languageDetect.LanguageUtil;
-import com.mininglamp.nlp.languageDetect.impl.LangRecog;
-
-import statistics.CountModel;
-import statistics.Counter;
-import statistics.ERROR;
-
-import java.text.SimpleDateFormat;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 import static edu.buaa.nlp.tw.common.StringUtil.*;
 
-class NewsMediaNameHandler implements Handler<ProcessedNews> {
+class NewsMediaNameHandler implements Handler<ProcessedNews> ,Serializable {
 	@Override
 	public boolean handle(ProcessedNews news) {
 
@@ -53,7 +43,7 @@ class NewsMediaNameHandler implements Handler<ProcessedNews> {
 	}
 }
 
-class NewsTypeAndCountryHandler implements Handler<ProcessedNews> {
+class NewsTypeAndCountryHandler implements Handler<ProcessedNews>,Serializable {
 	@Override
 	public boolean handle(ProcessedNews news) {
 		if (!isNull(news.getMediaTname())) {
@@ -73,7 +63,7 @@ class NewsTypeAndCountryHandler implements Handler<ProcessedNews> {
  
 }
 
-class NewsContentHandler implements Handler<ProcessedNews> {
+class NewsContentHandler implements Handler<ProcessedNews>,Serializable {
 	
 	@Override
 	public boolean handle(ProcessedNews news) {
@@ -89,7 +79,7 @@ class NewsContentHandler implements Handler<ProcessedNews> {
 	}
 }
 
-class NewsTimeHandler implements Handler<ProcessedNews> {
+class NewsTimeHandler implements Handler<ProcessedNews>,Serializable {
 	@Override
 	public boolean handle(ProcessedNews news) {
 		news.setPubdate(DateUtil.tryParse(news.getPubdate()));
@@ -110,7 +100,7 @@ class NewsTimeHandler implements Handler<ProcessedNews> {
 	}
 }
 
-class NewsLanguageHandler implements Handler<ProcessedNews> {
+class NewsLanguageHandler implements Handler<ProcessedNews>,Serializable {
 	static Logger LOG = LoggerFactory.getLogger(NewsLanguageHandler.class);
 	static List<String> allowLanguage = new ArrayList<>();
 	static {

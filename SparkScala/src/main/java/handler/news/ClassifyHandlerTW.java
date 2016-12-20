@@ -1,11 +1,12 @@
 package handler.news;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import edu.buaa.nlp.TextClassification.ThemeClassifier;
 import edu.buaa.nlp.entity.news.ProcessedNews;
 import handler.Handler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
 
 /***
  * 比较耗CPU
@@ -14,7 +15,7 @@ import handler.Handler;
  * 
  */
 public class ClassifyHandlerTW
-		implements Handler<ProcessedNews> {
+		implements Handler<ProcessedNews>, Serializable {
 
 	private static Logger LOG = LoggerFactory.getLogger(ClassifyHandlerTW.class);
 

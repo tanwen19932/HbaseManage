@@ -17,13 +17,12 @@ public class DicMap {
     static Map<Integer, String> mediaTMap;
 
     static {
-        String path = DicMap.class.getResource( "/" ).getPath();
+        //String path = DicMap.class.getResource( "/" ).getPath();
         // String path= "E:/properties/";
-        // System.out.println(path);
-        language = PropertiesUtil.getProp(path + "language.properties");
-        country = PropertiesUtil.getProp(path + "country.properties");
+        language = PropertiesUtil.getProp( "language.properties");
+        country = PropertiesUtil.getProp( "country.properties");
         // city = PropertiesUtil.getProp(path + "city.properties");
-
+        System.out.println(getLanguageZh("en"));
         mediaTMap = new HashMap<Integer, String>();
         mediaTMap.put(999, "其他");
         mediaTMap.put(1, "新闻");

@@ -19,9 +19,7 @@ object Hdfs {
 		println("list path:" + path)
 		val fs = fileSystem.listStatus(new Path(path))
 		val listPath = FileUtil.stat2Paths(fs)
-		for (p <- listPath) {
-			println(p)
-		}
+		for (p <- listPath) {println(p)}
 		println("----------------------------------------")
 	}
 

@@ -1,17 +1,17 @@
 package handler.news;
 
 import edu.buaa.nlp.entity.news.ProcessedNews;
-import edu.buaa.nlp.entity.util.HbaseUtil;
 import edu.buaa.nlp.tw.common.FileUtils;
 import handler.Handler;
 import handler.HandlerChain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 
-public class NewsHandlerChainV2 extends HandlerChain<ProcessedNews> {
+public class NewsHandlerChainV2 extends HandlerChain<ProcessedNews> implements Serializable{
 	private static final Logger LOG = LoggerFactory.getLogger(NewsHandlerChainV2.class);
 
 	public void errorHandle(String errorName, ProcessedNews news) {
@@ -25,7 +25,7 @@ public class NewsHandlerChainV2 extends HandlerChain<ProcessedNews> {
 
 	@Override
 	protected void init() {
-		errorHandler = new MysqlErrorHandler();
+		//errorHandler = new MysqlErrorHandler();
 		handlers = new LinkedList<Handler<ProcessedNews>>();
 		handlers.add(new NewsMediaNameHandler());
 		handlers.add(new NewsTypeAndCountryHandler());
@@ -34,8 +34,8 @@ public class NewsHandlerChainV2 extends HandlerChain<ProcessedNews> {
 		handlers.add(new NewsLanguageHandler());
 		handlers.add(new NewsSensitiveHandler());
 		
-		handlers.add(new DuplicateHandlerTW());
-		handlers.add(new TranslateHandlerTW());
+		//handlers.add(new DuplicateHandlerTW());
+		//handlers.add(new TranslateHandlerTW());
 		
 		handlers.add(new SegmentHandlerTW());
 		handlers.add(new ClassifyHandlerTW());
@@ -45,7 +45,7 @@ public class NewsHandlerChainV2 extends HandlerChain<ProcessedNews> {
 		handlers.add(new SentimentHandlerTW());
 		handlers.add(new SummaryHandlerTW());
 		
-		HbaseUtil.configuration = HbaseUtil.configuration50;
-		handlers.add(new SaveHandlerTW());
+		//HbaseUtil.configuration = HbaseUtil.configuration50;
+		//handlers.add(new SaveHandlerTW());
 	}
 }

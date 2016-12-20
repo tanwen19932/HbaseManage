@@ -8,20 +8,17 @@ import multi.patt.match.ac.AhoCorasick;
 import multi.patt.match.ac.SearchResult;
 import org.apache.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
 
-public class NewsSensitiveHandler implements Handler<ProcessedNews> {
+public class NewsSensitiveHandler implements Handler<ProcessedNews>,Serializable {
 	private static Logger LOG = Logger.getLogger(NewsSensitiveHandler.class);
-	static String websiteIdSensifilePath = "data/sensitive/websiteIdSensi.txt";
-	static String websiteIdProblemfilePath = "data/sensitive/websiteIdProblem.txt";
+	static String websiteIdSensifilePath = "/data/sensitive/websiteIdSensi.txt";
+	static String websiteIdProblemfilePath = "/data/sensitive/websiteIdProblem.txt";
 	static long lastSensiFileLength = 0;
 	static long lastProblemFileLength = 0;
 	private static Set<String> websiteIdSensi = new ConcurrentSkipListSet<>();

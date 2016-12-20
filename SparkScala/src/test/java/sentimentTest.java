@@ -1,4 +1,3 @@
-package test;
 
 import edu.buaa.nlp.sentiment.orientation.CombineSentimentAnalysis;
 import edu.buaa.nlp.text.inter.ISentimentAnalysis;

@@ -1,6 +1,6 @@
 package handler;
 
-public interface Handler<T> {
+public interface Handler<T>  {
 	/**
 	 * @param param
 	 * @return is handler successful?

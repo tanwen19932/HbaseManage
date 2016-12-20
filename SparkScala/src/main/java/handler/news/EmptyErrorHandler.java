@@ -1,13 +1,11 @@
 package handler.news;
 
 import edu.buaa.nlp.entity.news.ProcessedNews;
-import edu.buaa.nlp.tw.common.DateUtil;
 import handler.ErrorHandler;
-import statistics.CountModel;
-import statistics.Counter;
-import statistics.ERROR;
 
-public class EmptyErrorHandler implements ErrorHandler<ProcessedNews>{
+import java.io.Serializable;
+
+public class EmptyErrorHandler implements ErrorHandler<ProcessedNews> ,Serializable{
 	static final String SUCCESS_MSG = "Success";
 	@Override
 	public void errorHandle(String errorMessage, ProcessedNews news) {

@@ -9,7 +9,9 @@ import org.ansj.domain.Term;
 import org.ansj.splitWord.analysis.ToAnalysis;
 import org.apache.log4j.Logger;
 
-public class SegmentHandlerTW implements Handler<ProcessedNews> {
+import java.io.Serializable;
+
+public class SegmentHandlerTW implements Handler<ProcessedNews> ,Serializable {
 	private static Logger logger = Logger.getLogger(SegmentHandlerTW.class);
 
 	@Override
@@ -22,7 +24,6 @@ public class SegmentHandlerTW implements Handler<ProcessedNews> {
 				try {
 //						title = segmentor.seg(title);
 //						content = segmentor.seg(content.replaceAll("<BR/>", "\r\n\r\n")); // <BR/>标签处理的怎么
-					
 					title = parse(title);
 					content = parse(content.replaceAll("<BR/>", "\r\n\r\n"));
 
@@ -48,7 +49,7 @@ public class SegmentHandlerTW implements Handler<ProcessedNews> {
 	private String parse(String text) {
 		StringBuilder textBuilder = new StringBuilder();
 		Result result = ToAnalysis.parse(text);
-		for(Term term : result) {
+			for(Term term : result) {
 			textBuilder.append(term.getName() + " ");
 		}
 		return textBuilder.toString();

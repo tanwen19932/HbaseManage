@@ -8,14 +8,14 @@ import edu.buaa.nlp.util.DupConstants;
 import edu.buaa.nlp.util.ExceptionUtil;
 import edu.buaa.nlp.util.HtmlUtil;
 import handler.Handler;
-
-import java.util.concurrent.*;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
+import java.util.concurrent.*;
+
 public class TranslateHandlerTW
-		implements Handler<ProcessedNews> {
+		implements Handler<ProcessedNews> ,Serializable {
 
 	// private static String
 	// paramSuffix="&detoken=true&nBestSize=5&align=true";//text=中国&srcl=zh&tgtl=en&detoken=true&nBestSize=5&align=true
@@ -50,12 +50,13 @@ public class TranslateHandlerTW
 							if( StringUtil.isNull(news.getZhTitle()) ){
 								param = "&srcl=" + news.getLanguageCode() + "&tgtl=zh" + paramSuffix;
 								LOG.debug(" 新闻 {}  新闻时间：{} zhTitle为空！" , news.getId() ,news.getPubdate() );
-								String zhTitle = PostConnection.PostConnectionForTimes( DupConstants.TRANSLATE_SERVER_URL,
-										HtmlUtil.clearHTML(news.getTitleSrc()).replaceAll( "[^(a-zA-Z0-9\\u4e00-\\u9fa5\\s\\p{P})]", " " ),
-										DupConstants.TRIED_TRANSLATE_TIME );
+								String zhTitle = null;
+								//zhTitle  = PostConnection.PostConnectionForTimes( DupConstants.TRANSLATE_SERVER_URL,
+								//		HtmlUtil.clearHTML(news.getTitleSrc()).replaceAll( "[^(a-zA-Z0-9\\u4e00-\\u9fa5\\s\\p{P})]", " " ),
+								//		DupConstants.TRIED_TRANSLATE_TIME );
 								if ((zhTitle == null) || (zhTitle.trim().isEmpty())) {
 									news.setZhTitle( news.getTitleSrc() );
-									return false;
+									//return false;
 								} else {
 									news.setZhTitle( HtmlUtil.clearHTML( zhTitle ) );
 								}

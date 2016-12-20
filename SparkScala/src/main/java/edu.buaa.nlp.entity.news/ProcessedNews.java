@@ -4,10 +4,11 @@ import edu.buaa.nlp.tw.common.ReflectUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 
 
-public class ProcessedNews {
+public class ProcessedNews implements Serializable{
 
 	private String id;
 

@@ -11,8 +11,10 @@ import edu.buaa.nlp.util.ExceptionUtil;
 import edu.buaa.nlp.util.HtmlUtil;
 import handler.Handler;
 
+import java.io.Serializable;
+
 public class SummaryHandlerTW
-		implements Handler<ProcessedNews>{
+		implements Handler<ProcessedNews>,Serializable {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SummaryHandlerTW.class) ;
 	private  ISummerizer summerizer = new LexRankSummarizer();

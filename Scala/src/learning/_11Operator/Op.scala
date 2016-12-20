@@ -21,6 +21,8 @@ class Fraction(n:Int,d:Int)
   private val den=d
   def *(other:Fraction) = new Fraction(num*other.num,den*other.den)
   //重载称号操作符
+
+ override def toString = num+"\\"+den
 }
 
 

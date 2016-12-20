@@ -1,19 +1,5 @@
 package handler.news;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.apache.hadoop.hbase.TableName;
-import org.apache.hadoop.hbase.client.Delete;
-import org.apache.hadoop.hbase.client.Table;
-import org.apache.hadoop.hbase.util.Bytes;
-import org.elasticsearch.action.delete.DeleteResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import controller.Constants;
 import edu.buaa.nlp.duplicate.HbaseNewsDupDetectSimple;
 import edu.buaa.nlp.duplicate.IDupDetector;
@@ -21,6 +7,18 @@ import edu.buaa.nlp.entity.news.ProcessedNews;
 import edu.buaa.nlp.util.HashAlgorithms;
 import edu.buaa.nlp.utils.texthash.TextHash;
 import handler.Handler;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Delete;
+import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import static handler.news.SaveHandlerTW.*;
 /***
  * 比较耗CPU
@@ -29,7 +27,7 @@ import static handler.news.SaveHandlerTW.*;
  * 
  */
 public class DuplicateHandlerTW
-		implements Handler<ProcessedNews> {
+		implements Handler<ProcessedNews>,Serializable {
 
 	private static Logger LOG = LoggerFactory.getLogger(DuplicateHandlerTW.class);
 	private static IDupDetector<ProcessedNews> duplicateDetector = HbaseNewsDupDetectSimple.getInstance();

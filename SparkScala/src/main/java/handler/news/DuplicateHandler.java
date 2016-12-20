@@ -7,11 +7,12 @@ import handler.QueueHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-public class DuplicateHandler extends QueueHandler<ProcessedNews>{
+public class DuplicateHandler extends QueueHandler<ProcessedNews> implements Serializable {
 	private static final Logger LOG = LoggerFactory.getLogger(DuplicateHandler.class);
 	
 	private static IDupDetector<ProcessedNews> duplicateDetector = HbaseNewsDupDetect.getInstance();

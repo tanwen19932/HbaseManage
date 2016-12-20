@@ -24,9 +24,7 @@ object Collection {
 
     //    List(List(9), 1, 34, 5, 6, 88, 2)
     val app6 = List(9)::digits
-    136
-    136
-    136
+
     println(app1)
     println(app2)
     println(app3)

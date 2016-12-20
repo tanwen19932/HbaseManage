@@ -8,8 +8,10 @@ import edu.buaa.nlp.text.process.keyword.KeyExtractor;
 import handler.Handler;
 import org.apache.log4j.Logger;
 
+import java.io.Serializable;
+
 public class KeywordHandlerTW
-		implements Handler<ProcessedNews> {
+		implements Handler<ProcessedNews>,Serializable {
 
 	private static Logger LOG =Logger.getLogger(KeywordHandlerTW.class) ;
 	private IKeyExtracter keyExtracter = new KeyExtractor();;

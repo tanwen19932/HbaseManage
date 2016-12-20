@@ -1,4 +1,3 @@
-package test;
 
 import edu.buaa.nlp.text.inter.IKeyExtracter;
 import edu.buaa.nlp.text.process.factory.TextProcessFactory;
